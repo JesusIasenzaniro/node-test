@@ -16,5 +16,8 @@
     "bugs": {
         "url": "https://github.com/JesusIasenzaniro/node-test/issues"
     },
-    "homepage": "https://github.com/JesusIasenzaniro/node-test#readme"
+    "homepage": "https://github.com/JesusIasenzaniro/node-test#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
 }
