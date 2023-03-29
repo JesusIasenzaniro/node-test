@@ -1,9 +1,26 @@
+require('dotenv').config();
+
 const express = require('express');
 
 const app = express();
 
-const charactersRoutes = require('./routes/characters');
+const mongoose = require('mongoose');
 
-app.use(charactersRoutes);
+app.get('/', (req, res, next) => {
+    res.status(200).send('<h1>Hello World</h1>');
+});
 
-app.listen(3000);
+app.use((req, res, next) => {
+    res.status(404).send('<h1>Page not Found</h1>');
+});
+
+mongoose
+    .connect(
+        `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.glswpyr.mongodb.net/?retryWrites=true&w=majority`
+    )
+    .then((result) => {
+        app.listen(3000);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
