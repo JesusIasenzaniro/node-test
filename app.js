@@ -7,7 +7,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-const characterRoutes = require('./routes/characters');
+const characterRoutes = require('./routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
