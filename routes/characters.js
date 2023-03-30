@@ -6,8 +6,12 @@ const characterController = require('../controllers/character');
 
 router.get('/init', characterController.saveCharacters);
 
-router.get('/characters', (req, res, next) => {
-    res.status(200).send('<h1>Characters</h1>');
-});
+router.get('/get-characters', characterController.getAllCharacters);
+
+router.post('/post-character', characterController.postCharacter);
+
+router.put('/update-character/:id', characterController.updateCharacter);
+
+router.delete('/delete-character/:id', characterController.deleteCharacter);
 
 module.exports = router;
